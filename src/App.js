@@ -14,16 +14,34 @@ const PAGES = {
     registration: setPage => <Registration setPage={setPage}/>
 }
 
+const AppContext = React.createContext({})
+export const AppProvider = AppContext.Provider
+export const AppConsumer = AppContext.Consumer
+
 function App() {
 
-    const [page, setPage] = React.useState("login");
+    const [page, setPage] = React.useState('login')
+
+    const [isLoggedIn, setIsLoggedIn] = React.useState(false)
+
+    const login = (email, password) => {
+        if (email === 'test' && password === '123') {
+            setIsLoggedIn(true)
+            setPage('profile')
+        }
+    }
+
+    const logout = () => {
+        setIsLoggedIn(false)
+        setPage('login')
+    }
 
     return (
-        <React.Fragment>
+        <AppProvider value={{login, logout, isLoggedIn}}>
             <Header setPage={setPage}/>
             {PAGES[page](setPage)}
-        </React.Fragment>
-    );
+        </AppProvider>
+    )
 }
 
-export default App;
+export default App

@@ -5,19 +5,41 @@ import {
 } from '@material-ui/core';
 
 import logo from '../header-logo.svg';
+import {AppConsumer} from '../App';
 
 export const Header = ({setPage}) => {
     return (
-        <div className="Header">
+        <AppConsumer>
+            {context => {
+                return (
+                    <div className={'Header'}>
 
-            <p className="HeaderLogo">
-                <img src={logo} width="156" alt="Logo"/>
-            </p>
+                        <p className={'HeaderLogo'}>
+                            <img src={logo} width={'156'} alt={'Logo'}/>
+                        </p>
 
-            <Button color="primary" onClick={() => setPage("map")}>Карта</Button>
-            <Button color="primary" onClick={() => setPage("profile")}>Профиль</Button>
-            <Button color="primary" onClick={() => setPage("login")}>Вход</Button>
-            <Button color="primary" onClick={() => setPage("registration")}>Регистрация</Button>
-        </div>
+                        <Button color={'primary'} onClick={() => setPage('map')}>Карта</Button>
+                        <Button color={'primary'} onClick={() => setPage('profile')}>Профиль</Button>
+
+                        {context.isLoggedIn ?
+
+                            <Button color={'primary'}
+                                    onClick={() => {
+                                        context.logout()
+                                    }}>
+                                Выход
+                            </Button> :
+
+                            <Button color={'primary'}
+                                    onClick={() => {
+                                        setPage('login')
+                                    }}>
+                                Войти
+                            </Button>
+                        }
+                    </div>
+                )
+            }}
+        </AppConsumer>
     )
 }
