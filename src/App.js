@@ -38,7 +38,7 @@ function App() {
 
     return (
         <AppProvider value={{login, logout, isLoggedIn}}>
-            <Header setPage={setPage}/>
+            <Header id={'header'} setPage={setPage}/>
             {PAGES[page](setPage)}
         </AppProvider>
     )

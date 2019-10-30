@@ -23,14 +23,16 @@ export const Header = ({setPage}) => {
 
                         {context.isLoggedIn ?
 
-                            <Button color={'primary'}
+                            <Button id={'LogoutButton'}
+                                    color={'primary'}
                                     onClick={() => {
                                         context.logout()
                                     }}>
                                 Выход
                             </Button> :
 
-                            <Button color={'primary'}
+                            <Button id={'LoginButton'}
+                                    color={'primary'}
                                     onClick={() => {
                                         setPage('login')
                                     }}>
