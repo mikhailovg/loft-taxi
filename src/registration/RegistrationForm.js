@@ -5,60 +5,73 @@ import {
     Button,
     TextField
 } from '@material-ui/core';
+import {AppConsumer} from '../App';
 
 export const RegistrationForm = ({setPage}) => {
 
-    const onSubmit = (e) => {
-        e.preventDefault()
-        setPage("profile")
-    }
-
     return (
+        <AppConsumer>
+            {context => {
 
-        <div className="LoginForm">
+                const onSubmit = (event) => {
+                    event.preventDefault()
+                    context.login(event.target.login.value, event.target.password.value)
+                }
 
-            <form onSubmit={onSubmit}>
-                <div className="LoginFormContainer">
-                    <div className="LoginFormItem">
-                        <h1 className="LoginTitle">Регистрация</h1>
-                        <div className="LoginLink">
-                            <div>Уже зарегистрированы?</div>
-                            <a onClick={() => setPage("login")} className="Link">Войти</a>
-                        </div>
+                return (
+
+                    <div className={'LoginForm'}>
+
+                        <form onSubmit={onSubmit}>
+                            <div className={'LoginFormContainer'}>
+                                <div className={'LoginFormItem'}>
+                                    <h1 className={'LoginTitle'}>Регистрация</h1>
+                                    <div className={'LoginLink'}>
+                                        <div>Уже зарегистрированы?</div>
+                                        <a onClick={() => setPage("login")} className={'Link'}>Войти</a>
+                                    </div>
+                                </div>
+
+                                <TextField
+                                    required
+                                    label={'Адрес электронной почты'}
+                                    placeholder={'Адрес электронной почты'}
+                                    margin={'normal'}
+                                    name={'login'}
+                                />
+                                <TextField
+                                    required
+                                    label={'Имя'}
+                                    placeholder={'Имя'}
+                                    margin={'normal'}
+                                    name={'firstName'}
+                                />
+                                <TextField
+                                    required
+                                    label={'Фамилия'}
+                                    placeholder={'Фамилия'}
+                                    margin={'normal'}
+                                    name={'lastName'}
+                                />
+
+                                <TextField
+                                    required
+                                    label={'Пароль'}
+                                    placeholder={'Пароль'}
+                                    margin={'normal'}
+                                    name={'password'}
+                                    type={'password'}
+                                />
+
+                                <Button type={'submit'} variant={'contained'} color={'primary'} className={'LoginButton'}>
+                                    Войти
+                                </Button>
+                            </div>
+                        </form>
+
                     </div>
-
-                    <TextField
-                        required
-                        label="Адрес электронной почты"
-                        placeholder="Адрес электронной почты"
-                        margin="normal"
-                    />
-                    <TextField
-                        required
-                        label="Имя"
-                        placeholder="Имя"
-                        margin="normal"
-                    />
-                    <TextField
-                        required
-                        label="Фамилия"
-                        placeholder="Фамилия"
-                        margin="normal"
-                    />
-
-                    <TextField
-                        required
-                        label="Пароль"
-                        placeholder="Пароль"
-                        margin="normal"
-                    />
-
-                    <Button type="submit" variant="contained" color="primary" className="LoginButton">
-                        Войти
-                    </Button>
-                </div>
-            </form>
-
-        </div>
-    );
+                )
+            }}
+        </AppConsumer>
+    )
 }
