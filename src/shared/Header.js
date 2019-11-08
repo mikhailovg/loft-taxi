@@ -1,47 +1,73 @@
-import React from 'react';
+import React from 'react'
 
 import {
     Button,
-} from '@material-ui/core';
+} from '@material-ui/core'
 
-import logo from '../header-logo.svg';
-import {AppConsumer} from '../App';
+import logo from '../header-logo.svg'
+import {Link, NavLink} from 'react-router-dom'
 
-export const Header = ({setPage}) => {
+import {
+    fetchAuthRequest,
+    fetchRegisterRequest,
+} from '../modules/main'
+
+import {shallowEqual, useDispatch, useSelector} from 'react-redux'
+
+export const Header = () => {
+
+    const dispatch = useDispatch()
+
+    const authRequest = useSelector(fetchAuthRequest, shallowEqual)
+    const registerRequest = useSelector(fetchRegisterRequest, shallowEqual)
+
+    const performLogout = () => {
+
+        localStorage.setItem('authSuccess', 'false')
+        localStorage.setItem('registerSuccess', 'false')
+
+        dispatch({
+            ...authRequest, payload: {
+                email: null,
+                password: null
+            }
+        })
+
+        dispatch({
+            ...registerRequest, payload: {
+                email: null,
+                password: null,
+                name: null,
+                surname: null,
+            }
+        })
+    }
+
     return (
-        <AppConsumer>
-            {context => {
-                return (
-                    <div className={'Header'}>
 
-                        <p className={'HeaderLogo'}>
-                            <img src={logo} width={'156'} alt={'Logo'}/>
-                        </p>
+        <div className={'Header'}>
 
-                        <Button color={'primary'} onClick={() => setPage('map')}>Карта</Button>
-                        <Button color={'primary'} onClick={() => setPage('profile')}>Профиль</Button>
+            <p className={'HeaderLogo'}>
+                <img src={logo} width={'156'} alt={'Logo'}/>
+            </p>
 
-                        {context.isLoggedIn ?
+            <Button color={'primary'}>
+                <Link to={'/map'} className={'HeaderLink'}>
+                    Карта
+                </Link>
+            </Button>
+            <Button color={'primary'}>
+                <NavLink to={'/profile'} className={'HeaderLink'} activeClassName={'HeaderLink'}>
+                    Профиль
+                </NavLink>
+            </Button>
 
-                            <Button id={'LogoutButton'}
-                                    color={'primary'}
-                                    onClick={() => {
-                                        context.logout()
-                                    }}>
-                                Выход
-                            </Button> :
+           <Button id={'LogoutButton'} color={'primary'} onClick={performLogout}>
+               <Link to={'/register'} className={'HeaderLink'}>
+                   Выход
+               </Link>
+           </Button>
 
-                            <Button id={'LoginButton'}
-                                    color={'primary'}
-                                    onClick={() => {
-                                        setPage('login')
-                                    }}>
-                                Войти
-                            </Button>
-                        }
-                    </div>
-                )
-            }}
-        </AppConsumer>
+        </div>
     )
 }

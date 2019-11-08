@@ -74,11 +74,105 @@
   position: relative;
 }
 .Map {
-  height: 1071px;
+  height: 700px;
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
   width: 100%;
+}
+
+.HeaderLink {
+  color: #1473e6;
+  cursor: pointer;
+  text-decoration: none;
+  align-self: center;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+.Profile {
+  background-size: cover;
+  background-image: url('./login-background.jpg');
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ProfileTitle {
+  font-size: 2.125rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 1.17;
+  letter-spacing: 0.00735em;
+  margin: 0px;
+}
+.FlexCenter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-self: flex-start;
+}
+.ProfileSubTitle {
+  color: rgba(0, 0, 0, 0.54);
+  margin-top: 0px;
+  margin-bottom: 40px;
+  font-size: 1rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.00938em;
+}
+
+.ProfileFormContainer {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  align-content: center;
+}
+.ProfileForm {
+  flex-grow: 0;
+  max-width: 100%;
+  flex-basis: 100%;
+}
+.ProfileFormCards {
+  flex-grow: 1;
+  width: calc(100% + 32px);
+  margin: -16px;
+  justify-content: center;
+  display: flex;
+  /*flex-wrap: wrap;*/
+  box-sizing: border-box;
+}
+
+.ProfileFormCardContainer {
+  flex-grow: 0;
+  max-width: 50%;
+  flex-basis: 50%;
+  padding: 16px
+}
+
+.ProfileFormCard {
+  width: 236px;
+  height: 157px;
+  position: relative;
+  padding: 16px 32px;
+  border-radius: 4px;
+  box-shadow: 0px 3px 3px -2px rgba(0,0,0,0.2), 0px 3px 4px 0px rgba(0,0,0,0.14), 0px 1px 8px 0px rgba(0,0,0,0.12);
+}
+
+.ProfileFormCardFields {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.IconMasterCard {
+  top: 8px;
+  right: 8px;
+  width: 32px;
+  position: absolute;
+  font-size: 1.5rem;
 }

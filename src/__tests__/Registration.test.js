@@ -4,7 +4,6 @@ import {mount, shallow} from 'enzyme';
 import '../setupTests';
 import renderer from 'react-test-renderer';
 
-import App, {AppConsumer} from '../App';
 import {LoginForm} from '../login/LoginForm';
 import {Login} from "../login";
 import {Registration} from '../registration';

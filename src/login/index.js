@@ -1,11 +1,10 @@
-import React from 'react';
-import logo from '../logo.svg';
-import '../App.css';
+import React from 'react'
+import logo from '../logo.svg'
+import '../App.css'
 
-import {LoginForm} from "./LoginForm";
-import PropTypes from 'prop-types';
+import {LoginForm} from './LoginForm'
 
-export const Login = ({setPage}) => {
+export const Login = () => {
     return (
         <div className={'Login'}>
             <div className={'LoginColumn'}>
@@ -13,13 +12,9 @@ export const Login = ({setPage}) => {
             </div>
 
             <div className={'LoginColumn'}>
-                <LoginForm setPage={setPage}/>
+                <LoginForm/>
             </div>
 
         </div>
     )
-}
-
-Login.propTypes = {
-    setPage: PropTypes.func
 }

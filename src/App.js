@@ -7,40 +7,41 @@ import {Login} from './login';
 import {Registration} from './registration';
 import {Header} from './shared/Header';
 
-const PAGES = {
-    profile: () => <Profile/>,
-    map: () => <Map/>,
-    login: setPage => <Login setPage={setPage}/>,
-    registration: setPage => <Registration setPage={setPage}/>
-}
+import {
+    Redirect,
+    Route,
+    Switch,
+} from 'react-router-dom'
+import {shallowEqual, useSelector} from 'react-redux'
 
-const AppContext = React.createContext({})
-export const AppProvider = AppContext.Provider
-export const AppConsumer = AppContext.Consumer
+import {
+
+    getAuth,
+    getRegister,
+
+} from './modules/main'
+import {Router} from 'react-router'
+import history from './history'
 
 function App() {
 
-    const [page, setPage] = React.useState('login')
-
-    const [isLoggedIn, setIsLoggedIn] = React.useState(false)
-
-    const login = (email, password) => {
-        if (email === 'test' && password === '123') {
-            setIsLoggedIn(true)
-            setPage('profile')
-        }
-    }
-
-    const logout = () => {
-        setIsLoggedIn(false)
-        setPage('login')
-    }
+    const auth = useSelector(getAuth, shallowEqual)
+    const register = useSelector(getRegister, shallowEqual)
 
     return (
-        <AppProvider value={{login, logout, isLoggedIn}}>
-            <Header id={'header'} setPage={setPage}/>
-            {PAGES[page](setPage)}
-        </AppProvider>
+        <Router history={history}>
+            {(auth && auth.success && JSON.parse(auth.success) === true) || (register && register.success && JSON.parse(register.success) === true) ?
+                <Header id={'header'}/> : null
+            }
+            <Switch>
+                <Route path={'/login'} render={() => <Login/>}/>
+                <Route path={'/map'} render={() => <Map/>}/>
+                <Route path={'/profile'} render={() => <Profile/>}/>
+                <Route path={'/registration'} render={() => <Registration/>}/>
+                <Redirect from={'/'} to={'login'}/>
+            </Switch>
+
+        </Router>
     )
 }
 
