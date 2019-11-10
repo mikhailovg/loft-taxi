@@ -16,7 +16,7 @@ exports[`Login renders correctly 1`] = `
         <h1
           className="LoginTitle"
         >
-          Войти
+          Регистрация
         </h1>
         <div
           className="LoginLink"
@@ -26,9 +26,10 @@ exports[`Login renders correctly 1`] = `
           </div>
           <a
             className="Link"
+            href="/login"
             onClick={[Function]}
           >
-            Зарегистрируйтесь
+            Войти
           </a>
         </div>
       </div>
@@ -39,7 +40,7 @@ exports[`Login renders correctly 1`] = `
           className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated Mui-required Mui-required"
           data-shrink={false}
         >
-          Имя пользователя
+          Адрес электронной почты
           <span
             className="MuiFormLabel-asterisk MuiInputLabel-asterisk"
           >
@@ -60,7 +61,75 @@ exports[`Login renders correctly 1`] = `
             onBlur={[Function]}
             onChange={[Function]}
             onFocus={[Function]}
-            placeholder="Имя пользователя"
+            placeholder="Адрес электронной почты"
+            required={true}
+            type="text"
+          />
+        </div>
+      </div>
+      <div
+        className="MuiFormControl-root MuiTextField-root MuiFormControl-marginNormal"
+      >
+        <label
+          className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated Mui-required Mui-required"
+          data-shrink={false}
+        >
+          Имя
+          <span
+            className="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+          >
+             
+            *
+          </span>
+        </label>
+        <div
+          className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"
+          onClick={[Function]}
+        >
+          <input
+            aria-invalid={false}
+            className="MuiInputBase-input MuiInput-input"
+            disabled={false}
+            name="name"
+            onAnimationStart={[Function]}
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            placeholder="Имя"
+            required={true}
+            type="text"
+          />
+        </div>
+      </div>
+      <div
+        className="MuiFormControl-root MuiTextField-root MuiFormControl-marginNormal"
+      >
+        <label
+          className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated Mui-required Mui-required"
+          data-shrink={false}
+        >
+          Фамилия
+          <span
+            className="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+          >
+             
+            *
+          </span>
+        </label>
+        <div
+          className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"
+          onClick={[Function]}
+        >
+          <input
+            aria-invalid={false}
+            className="MuiInputBase-input MuiInput-input"
+            disabled={false}
+            name="surname"
+            onAnimationStart={[Function]}
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            placeholder="Фамилия"
             required={true}
             type="text"
           />
@@ -101,7 +170,7 @@ exports[`Login renders correctly 1`] = `
         </div>
       </div>
       <button
-        className="MuiButtonBase-root MuiButton-root MuiButton-contained LoginButton MuiButton-containedPrimary"
+        className="MuiButtonBase-root MuiButton-root MuiButton-contained LoginButton LoginButtonMargin MuiButton-containedPrimary"
         disabled={false}
         onBlur={[Function]}
         onDragLeave={[Function]}

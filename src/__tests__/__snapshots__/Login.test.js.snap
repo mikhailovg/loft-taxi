@@ -42,6 +42,7 @@ exports[`Login renders correctly 1`] = `
               </div>
               <a
                 className="Link"
+                href="/registration"
                 onClick={[Function]}
               >
                 Зарегистрируйтесь
@@ -117,7 +118,7 @@ exports[`Login renders correctly 1`] = `
             </div>
           </div>
           <button
-            className="MuiButtonBase-root MuiButton-root MuiButton-contained LoginButton MuiButton-containedPrimary"
+            className="MuiButtonBase-root MuiButton-root MuiButton-contained LoginButton LoginButtonMargin MuiButton-containedPrimary"
             disabled={false}
             onBlur={[Function]}
             onDragLeave={[Function]}

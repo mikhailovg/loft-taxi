@@ -17,7 +17,6 @@ exports[`Header renders correctly 1`] = `
     className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
     disabled={false}
     onBlur={[Function]}
-    onClick={[Function]}
     onDragLeave={[Function]}
     onFocus={[Function]}
     onKeyDown={[Function]}
@@ -34,12 +33,49 @@ exports[`Header renders correctly 1`] = `
     <span
       className="MuiButton-label"
     >
-      Карта
+      <a
+        className="HeaderLink"
+        href="/map"
+        onClick={[Function]}
+      >
+        Карта
+      </a>
     </span>
   </button>
   <button
     className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
     disabled={false}
+    onBlur={[Function]}
+    onDragLeave={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onKeyUp={[Function]}
+    onMouseDown={[Function]}
+    onMouseLeave={[Function]}
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}
+    tabIndex={0}
+    type="button"
+  >
+    <span
+      className="MuiButton-label"
+    >
+      <a
+        aria-current={null}
+        className="HeaderLink"
+        href="/profile"
+        onClick={[Function]}
+      >
+        Профиль
+      </a>
+    </span>
+  </button>
+  <button
+    className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
+    disabled={false}
+    id="LogoutButton"
     onBlur={[Function]}
     onClick={[Function]}
     onDragLeave={[Function]}
@@ -58,32 +94,13 @@ exports[`Header renders correctly 1`] = `
     <span
       className="MuiButton-label"
     >
-      Профиль
-    </span>
-  </button>
-  <button
-    className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-    disabled={false}
-    id="LoginButton"
-    onBlur={[Function]}
-    onClick={[Function]}
-    onDragLeave={[Function]}
-    onFocus={[Function]}
-    onKeyDown={[Function]}
-    onKeyUp={[Function]}
-    onMouseDown={[Function]}
-    onMouseLeave={[Function]}
-    onMouseUp={[Function]}
-    onTouchEnd={[Function]}
-    onTouchMove={[Function]}
-    onTouchStart={[Function]}
-    tabIndex={0}
-    type="button"
-  >
-    <span
-      className="MuiButton-label"
-    >
-      Войти
+      <a
+        className="HeaderLink"
+        href="/register"
+        onClick={[Function]}
+      >
+        Выход
+      </a>
     </span>
   </button>
 </div>

@@ -1,33 +1,32 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import {mount, shallow} from 'enzyme';
-import '../setupTests';
-import renderer from 'react-test-renderer';
+import React from 'react'
+import {mount, shallow} from 'enzyme'
+import '../setupTests'
+import renderer from 'react-test-renderer'
 
-import App, {AppConsumer} from '../App';
-import {LoginForm} from '../login/LoginForm';
-import {Login} from "../login";
-import {Registration} from '../registration';
-import {RegistrationForm} from '../registration/RegistrationForm';
-import {Profile} from '../profile';
+import {Registration} from '../registration'
+import {Router} from 'react-router'
+import history from '../history'
 
 describe('Registration', () => {
 
-    const parentWrapper = shallow(<Registration/>);
+    const wrapper = shallow(<Registration/>)
 
-    const outer = shallow(<RegistrationForm/>);
-    const wrapper = shallow(outer.props().children({ /* context */}));
+    const routerWrapper = shallow(
+        <Router history={history}>
+            <Registration/>
+        </Router>
+    )
 
     it('renders root div', () => {
-        expect(parentWrapper.find('.Login').length === 1).toEqual(true);
+        expect(wrapper.find('.Login').length === 1).toEqual(true);
     });
 
     it('renders RegistrationForm', () => {
-        expect(wrapper.find('.LoginForm').length === 1).toEqual(true);
+        expect(wrapper.find('.LoginColumn').length > 0).toEqual(true);
     });
 
     it('renders correctly', () => {
-        const tree = renderer.create(<Registration/>).toJSON();
+        const tree = renderer.create(routerWrapper).toJSON();
         expect(tree).toMatchSnapshot();
     });
 
@@ -36,4 +35,17 @@ describe('Registration', () => {
 // FIX TypeError: window.URL.createObjectURL is not a function
 jest.mock('mapbox-gl', () => ({
     Map: () => ({})
+}))
+jest.mock('react-redux', () => ({
+    useDispatch: () => {},
+    useSelector: () => ({
+        auth: {
+            success: true,
+            token: 'TOKEN1'
+        },
+        register: {
+            success: true,
+            token: 'TOKEN1'
+        },
+    })
 }))

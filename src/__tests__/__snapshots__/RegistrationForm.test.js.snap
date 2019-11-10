@@ -26,6 +26,7 @@ exports[`Registration renders correctly 1`] = `
           </div>
           <a
             className="Link"
+            href="/login"
             onClick={[Function]}
           >
             Войти
@@ -89,7 +90,7 @@ exports[`Registration renders correctly 1`] = `
             aria-invalid={false}
             className="MuiInputBase-input MuiInput-input"
             disabled={false}
-            name="firstName"
+            name="name"
             onAnimationStart={[Function]}
             onBlur={[Function]}
             onChange={[Function]}
@@ -123,7 +124,7 @@ exports[`Registration renders correctly 1`] = `
             aria-invalid={false}
             className="MuiInputBase-input MuiInput-input"
             disabled={false}
-            name="lastName"
+            name="surname"
             onAnimationStart={[Function]}
             onBlur={[Function]}
             onChange={[Function]}
@@ -169,7 +170,7 @@ exports[`Registration renders correctly 1`] = `
         </div>
       </div>
       <button
-        className="MuiButtonBase-root MuiButton-root MuiButton-contained LoginButton MuiButton-containedPrimary"
+        className="MuiButtonBase-root MuiButton-root MuiButton-contained LoginButton LoginButtonMargin MuiButton-containedPrimary"
         disabled={false}
         onBlur={[Function]}
         onDragLeave={[Function]}
