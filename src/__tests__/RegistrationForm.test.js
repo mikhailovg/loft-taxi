@@ -1,25 +1,27 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import {mount, shallow} from 'enzyme';
-import '../setupTests';
-import renderer from 'react-test-renderer';
+import React from 'react'
+import {mount, shallow} from 'enzyme'
+import '../setupTests'
+import renderer from 'react-test-renderer'
 
-import {LoginForm} from '../login/LoginForm';
-import {Login} from "../login";
-import {Registration} from '../registration';
-import {RegistrationForm} from '../registration/RegistrationForm';
-import {Profile} from '../profile';
+import {LoginForm} from '../login/LoginForm'
+import {RegistrationForm} from '../registration/RegistrationForm'
+import {Router} from 'react-router'
+import history from '../history'
 
 describe('Registration', () => {
-    const outer = shallow(<RegistrationForm/>);
-    const wrapper = shallow(outer.props().children({ /* context */}));
+    const wrapper = shallow(<RegistrationForm/>);
+    const routerWrapper = shallow(
+        <Router history={history}>
+            <RegistrationForm/>
+        </Router>
+    )
 
     it('renders RegistrationForm', () => {
         expect(wrapper.find('.LoginForm').length === 1).toEqual(true);
     });
 
     it('renders correctly', () => {
-        const tree = renderer.create(<RegistrationForm/>).toJSON();
+        const tree = renderer.create(routerWrapper).toJSON();
         expect(tree).toMatchSnapshot();
     });
 
@@ -28,4 +30,17 @@ describe('Registration', () => {
 // FIX TypeError: window.URL.createObjectURL is not a function
 jest.mock('mapbox-gl', () => ({
     Map: () => ({})
+}))
+jest.mock('react-redux', () => ({
+    useDispatch: () => {},
+    useSelector: () => ({
+        auth: {
+            success: true,
+            token: 'TOKEN1'
+        },
+        register: {
+            success: true,
+            token: 'TOKEN1'
+        },
+    })
 }))

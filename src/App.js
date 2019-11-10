@@ -1,11 +1,11 @@
-import React from 'react';
-import './App.css';
+import React from 'react'
+import './App.css'
 
-import {Profile} from './profile';
-import {Map} from './map';
-import {Login} from './login';
-import {Registration} from './registration';
-import {Header} from './shared/Header';
+import {Profile} from './profile'
+import {Map} from './map'
+import {Login} from './login'
+import {Registration} from './registration'
+import {Header} from './shared/Header'
 
 import {
     Redirect,

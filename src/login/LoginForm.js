@@ -24,6 +24,7 @@ export const LoginForm = () => {
 
     if (auth && auth.success && JSON.parse(auth.success) === true) {
         localStorage.setItem('authSuccess', auth.success)
+        localStorage.setItem('authToken', auth.token)
         history.push('/map')
     }
 
@@ -72,7 +73,7 @@ export const LoginForm = () => {
                     />
 
                     <Button type={'submit'} variant={'contained'} color={'primary'}
-                            className={'LoginButton'}>
+                            className={'LoginButton LoginButtonMargin'}>
                         Войти
                     </Button>
 

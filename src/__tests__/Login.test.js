@@ -1,31 +1,32 @@
-import React from 'react';
-import {mount, shallow} from 'enzyme';
-import '../setupTests';
-import renderer from 'react-test-renderer';
+import React from 'react'
+import {mount, shallow} from 'enzyme'
+import '../setupTests'
+import renderer from 'react-test-renderer'
 
-import {LoginForm} from '../login/LoginForm';
-import {Login} from "../login";
+import {Login} from '../login'
+import {Router} from 'react-router'
+import history from '../history'
 
 describe('Login', () => {
 
-    const parentWrapper = shallow(<Login/>);
+    const wrapper = shallow(<Login/>)
 
-    const outer = shallow(<LoginForm/>);
-    const wrapper = shallow(outer.props().children({ /* context */}));
+    const routerWrapper = shallow(
+        <Router history={history}>
+            <Login/>
+        </Router>
+    )
 
     it('renders root div', () => {
-        expect(parentWrapper.find('.Login').length === 1).toEqual(true);
+        expect(wrapper.find('.Login').length === 1).toEqual(true);
     });
 
     it('renders LoginForm', () => {
-        expect(wrapper.find('.LoginForm').length === 1).toEqual(true);
-
-        // const outerWrapper = mount(<LoginForm />);
-        // outerWrapper.find('button').simulate('click')
+        expect(wrapper.find('.LoginColumn').length > 0).toEqual(true);
     });
 
     it('renders correctly', () => {
-        const tree = renderer.create(<Login/>).toJSON();
+        const tree = renderer.create(routerWrapper).toJSON();
         expect(tree).toMatchSnapshot();
     });
 
@@ -34,4 +35,18 @@ describe('Login', () => {
 // FIX TypeError: window.URL.createObjectURL is not a function
 jest.mock('mapbox-gl', () => ({
     Map: () => ({})
+}))
+
+jest.mock('react-redux', () => ({
+    useDispatch: () => {},
+    useSelector: () => ({
+        auth: {
+            success: true,
+            token: 'TOKEN1'
+        },
+        register: {
+            success: true,
+            token: 'TOKEN1'
+        },
+    })
 }))

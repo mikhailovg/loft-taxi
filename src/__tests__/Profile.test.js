@@ -1,17 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import {mount, shallow} from 'enzyme';
-import '../setupTests';
-import renderer from 'react-test-renderer';
+import React from 'react'
+import {mount, shallow} from 'enzyme'
+import '../setupTests'
+import renderer from 'react-test-renderer'
 
-import {Profile} from '../profile';
+import {Profile} from '../profile'
 
 describe('Profile', () => {
-    const outer = shallow(<Profile/>);
-    const wrapper = shallow(outer.props().children({ /* context */}));
+    const wrapper = shallow(<Profile/>);
 
     it('renders root div', () => {
-        console.log(wrapper.debug())
         expect(wrapper.find('.PageTitle').length === 1).toEqual(true);
     });
 
@@ -25,4 +22,18 @@ describe('Profile', () => {
 // FIX TypeError: window.URL.createObjectURL is not a function
 jest.mock('mapbox-gl', () => ({
     Map: () => ({})
+}))
+
+jest.mock('react-redux', () => ({
+    useDispatch: () => {},
+    useSelector: () => ({
+        auth: {
+            success: true,
+            token: 'TOKEN1'
+        },
+        register: {
+            success: true,
+            token: 'TOKEN1'
+        },
+    })
 }))

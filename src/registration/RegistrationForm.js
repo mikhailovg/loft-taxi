@@ -24,6 +24,7 @@ export const RegistrationForm = () => {
 
     if (register && register.success && JSON.parse(register.success) === true) {
         localStorage.setItem('registerSuccess', register.success)
+        localStorage.setItem('authToken', register.token)
         history.push('/map')
     }
 
@@ -87,7 +88,7 @@ export const RegistrationForm = () => {
                     />
 
                     <Button type={'submit'} variant={'contained'} color={'primary'}
-                            className={'LoginButton'}>
+                            className={'LoginButton LoginButtonMargin'}>
                         Войти
                     </Button>
                 </div>

@@ -1,39 +1,26 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 import {mount, shallow} from 'enzyme'
 import '../setupTests'
 import renderer from 'react-test-renderer'
 
-import {Header} from '../shared/Header'
+import {ProfileForm} from '../profile/ProfileForm'
 import {Router} from 'react-router'
 import history from '../history'
 
-describe('Header', () => {
-
-    const wrapper = shallow(<Header/>)
-
+describe('ProfileForm', () => {
+    const wrapper = shallow(<ProfileForm/>);
     const routerWrapper = shallow(
         <Router history={history}>
-            <Header/>
+            <ProfileForm/>
         </Router>
     )
 
-    it('renders without crashing', () => {
-        const div = document.createElement('div');
-        ReactDOM.render(routerWrapper, div);
-        ReactDOM.unmountComponentAtNode(div);
+    it('renders ProfileForm Container', () => {
+        expect(wrapper.find('.ProfileFormContainer').length === 1).toEqual(true);
     });
 
-    it('renders Header', () => {
-        expect(wrapper.find('.Header').length === 1).toEqual(true);
-    });
-
-    it('don`t renders LoginButton', () => {
-        expect(wrapper.find('#LoginButton').exists()).toEqual(false);
-    });
-
-    it('renders LogoutButton', () => {
-        expect(wrapper.find('#LogoutButton').exists()).toEqual(true);
+    it('renders ProfileForm', () => {
+        expect(wrapper.find('.ProfileForm').length === 1).toEqual(true);
     });
 
     it('renders correctly', () => {
@@ -47,7 +34,6 @@ describe('Header', () => {
 jest.mock('mapbox-gl', () => ({
     Map: () => ({})
 }))
-
 jest.mock('react-redux', () => ({
     useDispatch: () => {},
     useSelector: () => ({

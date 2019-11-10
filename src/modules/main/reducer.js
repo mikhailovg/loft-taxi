@@ -13,6 +13,14 @@ import {
     fetchAddressListSuccess,
     fetchAddressListFailure,
 
+    fetchGetCardRequest,
+    fetchGetCardSuccess,
+    fetchGetCardFailure,
+
+    fetchPostCardRequest,
+    fetchPostCardSuccess,
+    fetchPostCardFailure,
+
 } from './actions'
 
 const authResult = handleActions(
@@ -90,6 +98,57 @@ const addressListError = handleActions(
     null,
 )
 
+const cardResult = handleActions(
+    {
+        [fetchGetCardRequest]: () => null,
+        [fetchGetCardSuccess]: (_state, action) => action.payload,
+    },
+    [],
+)
+
+const cardIsLoading = handleActions(
+    {
+        [fetchGetCardRequest]: () => true,
+        [fetchGetCardSuccess]: () => false,
+        [fetchGetCardFailure]: () => false,
+    },
+    false,
+)
+
+const cardError = handleActions(
+    {
+        [fetchGetCardRequest]: () => null,
+        [fetchGetCardFailure]: (_state, action) => action.payload,
+    },
+    null,
+)
+
+
+const postCardResult = handleActions(
+    {
+        [fetchPostCardRequest]: () => null,
+        [fetchPostCardSuccess]: (_state, action) => action.payload,
+    },
+    [],
+)
+
+const postCardIsLoading = handleActions(
+    {
+        [fetchPostCardRequest]: () => true,
+        [fetchPostCardSuccess]: () => false,
+        [fetchPostCardFailure]: () => false,
+    },
+    false,
+)
+
+const postCardError = handleActions(
+    {
+        [fetchPostCardRequest]: () => null,
+        [fetchPostCardFailure]: (_state, action) => action.payload,
+    },
+    null,
+)
+
 export default combineReducers({
     authResult,
     authIsLoading,
@@ -102,5 +161,13 @@ export default combineReducers({
     addressListElements,
     addressListIsLoading,
     addressListError,
+
+    cardResult,
+    cardIsLoading,
+    cardError,
+
+    postCardResult,
+    postCardIsLoading,
+    postCardError,
 
 })
