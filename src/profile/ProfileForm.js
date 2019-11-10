@@ -57,7 +57,7 @@ export const ProfileForm = () => {
             ...callPostCardRequest,
             payload: {
                 cardNumber: event.target.cardNumber.value,
-                expiryDate: event.target.expiryDate.value,
+                expiryDate: state.expiryDate,
                 cardName: event.target.cardName.value,
                 cvc: event.target.cvc.value,
                 token: localStorage.getItem('authToken'),
@@ -91,7 +91,7 @@ export const ProfileForm = () => {
                                     margin={'normal'}
                                     name={'cardNumber'}
                                     value={state.cardNumber}
-                                    onChange={(target) => setState({cardNumber: target.value})}
+                                    onChange={(target) => setState({...state, cardNumber: target.value})}
                                 />
                                 </div>
 
@@ -99,8 +99,13 @@ export const ProfileForm = () => {
                                     <DatePicker
                                         openTo={'year'}
                                         format={'MM/yy'}
+                                        minDate={new Date()}
+                                        maxDate={new Date('2099-12-01')}
+                                        defaultValue={new Date(2000,11,1)}
                                         value={state.expiryDate}
-                                        onChange={(value) => setState({expiryDate: value})}
+                                        onChange={(value) => {
+                                            setState({expiryDate: new Date(value)})
+                                        }}
                                         animateYearScrolling
                                         name={'expiryDate'}
                                     />
@@ -121,7 +126,7 @@ export const ProfileForm = () => {
                                     margin={'normal'}
                                     name={'cardName'}
                                     value={state.cardName}
-                                    onChange={(target) => setState({cardName: target.value})}
+                                    onChange={(target) => setState({...state, cardName: target.value})}
                                 />
 
                                 <div className={'TextFieldLabelBlock'}>
@@ -132,7 +137,7 @@ export const ProfileForm = () => {
                                     margin={'normal'}
                                     name={'cvc'}
                                     value={state.cvc}
-                                    onChange={(target) => setState({cvc: target.value})}
+                                    onChange={(target) => setState({...state, cvc: target.value})}
                                 />
 
                             </div>
