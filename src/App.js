@@ -24,7 +24,7 @@ import {Router} from 'react-router'
 import history from './history'
 
 function App() {
-
+//
     const auth = useSelector(getAuth, shallowEqual)
     const register = useSelector(getRegister, shallowEqual)
 
