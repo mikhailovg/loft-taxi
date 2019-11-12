@@ -34,3 +34,10 @@ export const getAddressList = createSelector(
     state => state.mainReducer.addressListElements,
     addressListElements => addressListElements,
 )
+
+export const routeListIsLoading = state => state.mainReducer.routeListIsLoading
+export const routeListError = state => state.mainReducer.routeListError
+export const getRouteList = createSelector(
+    state => state.mainReducer.routeList,
+    routeList => routeList,
+)

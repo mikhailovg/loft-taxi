@@ -21,6 +21,10 @@ import {
     fetchPostCardSuccess,
     fetchPostCardFailure,
 
+    fetchGetRouteListRequest,
+    fetchGetRouteListSuccess,
+    fetchGetRouteListFailure,
+
 } from './actions'
 
 const authResult = handleActions(
@@ -149,6 +153,32 @@ const postCardError = handleActions(
     null,
 )
 
+
+const routeList = handleActions(
+    {
+        [fetchGetRouteListRequest]: () => null,
+        [fetchGetRouteListSuccess]: (_state, action) => action.payload,
+    },
+    [],
+)
+
+const routeListIsLoading = handleActions(
+    {
+        [fetchGetRouteListRequest]: () => true,
+        [fetchGetRouteListSuccess]: () => false,
+        [fetchGetRouteListFailure]: () => false,
+    },
+    false,
+)
+
+const routeListError = handleActions(
+    {
+        [fetchGetRouteListRequest]: () => null,
+        [fetchGetRouteListFailure]: (_state, action) => action.payload,
+    },
+    null,
+)
+
 export default combineReducers({
     authResult,
     authIsLoading,
@@ -169,5 +199,9 @@ export default combineReducers({
     postCardResult,
     postCardIsLoading,
     postCardError,
+
+    routeList,
+    routeListIsLoading,
+    routeListError,
 
 })

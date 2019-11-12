@@ -205,3 +205,67 @@
 .LoginButtonMargin {
   margin-top: 20px !important;
 }
+
+.MapFormContainer {
+  padding: 44px 60px;
+  margin-top: 48px;
+  margin-bottom: 48px;
+  border-radius: 4px;
+  background-color: #fff;
+
+  position: absolute;
+  top: 0;
+  left: 20px;
+  max-width: 30%;
+
+  box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12);
+}
+.MapForm {
+  width: 298px;
+  display: flex;
+  flex-direction: column;
+}
+.MapFormRow {
+  width: 100%;
+  margin-bottom: 40px;
+}
+.MapFormButton {
+  width: 100%;
+  margin-top: 0 !important;
+  text-transform: none !important;
+}
+.MuiInput-root {
+  width: 100%;
+}
+.Hidden {
+  display: none !important;
+}
+.MapOrderTitle {
+  margin-top: 0;
+  margin-bottom: 30px;
+  font-size: 2.125rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 1.17;
+  letter-spacing: 0.00735em;
+}
+.MapOrderText {
+  margin-top: 0;
+  margin-bottom: 30px;
+  font-size: 1rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.00938em;
+}
+.ButtonDisabled {
+  color: rgba(0, 0, 0, 0.26) !important;
+  box-shadow: none !important;;
+  background-color: rgba(0, 0, 0, 0.12) !important;;
+}
+.ProfileSaveSuccess {
+  margin-bottom: 40px;
+}
+.ButtonLowerCase {
+  text-transform: none !important;
+}

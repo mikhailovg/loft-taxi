@@ -23,6 +23,9 @@ import {
 
 const host = 'https://loft-taxi.glitch.me'
 
+/**
+ * @deprecated
+ */
 export const fetchUserMiddleware = store => next => action => {
     switch (action.type) {
 
