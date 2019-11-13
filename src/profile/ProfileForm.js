@@ -39,6 +39,7 @@ export const ProfileForm = () => {
         expiryDate: new Date(),
         cardName: '',
         cvc: '',
+        isSaveSuccess: false,
     })
 
     useEffect(() => {
@@ -69,7 +70,15 @@ export const ProfileForm = () => {
         })
     }
 
-    return postCard && postCard.success ?
+    useEffect(() => {
+        if (postCard && postCard.success) {
+            setState({...state, isSaveSuccess: true})
+        }
+    }, [postCard])
+
+    return (
+
+        state.isSaveSuccess ?
 
         <div className={''}>
             <div className={'ProfileSaveSuccess'}>Платёжные данные обновлены. Теперь вы можете заказывать такси.</div>
@@ -174,5 +183,5 @@ export const ProfileForm = () => {
 
             </form>
         </div>
-
+    )
 }

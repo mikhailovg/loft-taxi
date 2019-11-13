@@ -21,6 +21,9 @@ describe('main reducer', () => {
             registerError: null,
             registerIsLoading: false,
             registerResult: null,
+            routeList: [],
+            routeListError: null,
+            routeListIsLoading: false,
         }
 
         const initialState = {
@@ -58,6 +61,9 @@ describe('main reducer', () => {
             registerError: null,
             registerIsLoading: false,
             registerResult: null,
+            routeList: [],
+            routeListError: null,
+            routeListIsLoading: false,
         }
 
         const initialState = {
@@ -96,6 +102,9 @@ describe('main reducer', () => {
             registerError: null,
             registerIsLoading: false,
             registerResult: null,
+            routeList: [],
+            routeListError: null,
+            routeListIsLoading: false,
         }
 
         const initialState = {
@@ -135,6 +144,9 @@ describe('main reducer', () => {
             registerError: 'Error',
             registerIsLoading: false,
             registerResult: null,
+            routeList: [],
+            routeListError: null,
+            routeListIsLoading: false,
         }
 
         const initialState = {
@@ -173,6 +185,9 @@ describe('main reducer', () => {
             registerError: null,
             registerIsLoading: true,
             registerResult: null,
+            routeList: [],
+            routeListError: null,
+            routeListIsLoading: false,
         }
 
         const initialState = {
@@ -213,6 +228,9 @@ describe('main reducer', () => {
             registerError: null,
             registerIsLoading: false,
             registerResult: null,
+            routeList: [],
+            routeListError: null,
+            routeListIsLoading: false,
         }
 
         const initialState = {
@@ -251,6 +269,9 @@ describe('main reducer', () => {
             registerError: null,
             registerIsLoading: false,
             registerResult: null,
+            routeList: [],
+            routeListError: null,
+            routeListIsLoading: false,
         }
 
         const initialState = {
@@ -290,6 +311,9 @@ describe('main reducer', () => {
             registerError: null,
             registerIsLoading: false,
             registerResult: null,
+            routeList: [],
+            routeListError: null,
+            routeListIsLoading: false,
         }
 
         const initialState = {
@@ -328,6 +352,9 @@ describe('main reducer', () => {
             registerError: null,
             registerIsLoading: false,
             registerResult: null,
+            routeList: [],
+            routeListError: null,
+            routeListIsLoading: false,
         }
 
         const initialState = {

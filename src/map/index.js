@@ -130,6 +130,7 @@ export const Map = () => {
         return addressList && addressList.addresses && addressList.addresses.length ?
             addressList.addresses.map(address => (
                 <MenuItem
+                    key={'key_address_' + address}
                     value={address}
                     className={state.address1 === address || state.address2 === address ? 'Hidden' : null}>
                     {address}

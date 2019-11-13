@@ -28,7 +28,7 @@ import {
 
 const host = 'https://loft-taxi.glitch.me'
 
-const callPostAuth = (action) =>
+export const callPostAuth = (action) =>
     fetch(host + '/auth', {
         method: 'POST',
         headers: {
@@ -38,7 +38,7 @@ const callPostAuth = (action) =>
     })
         .then(response => response.json())
 
-const callPostRegister = (action) =>
+export const callPostRegister = (action) =>
     fetch(host + '/register', {
         method: 'POST',
         headers: {
@@ -48,7 +48,7 @@ const callPostRegister = (action) =>
     })
         .then(response => response.json())
 
-const callPostCard = (action) =>
+export const callPostCard = (action) =>
     fetch(host + '/card', {
         method: 'POST',
         headers: {
@@ -58,104 +58,86 @@ const callPostCard = (action) =>
     })
         .then(response => response.json())
 
-const callGetAddressList = () =>
+export const callGetAddressList = () =>
     fetch(host + '/addressList')
         .then(response => response.json())
 
-const callGetCard = () =>
+export const callGetCard = () =>
     fetch(host + '/card?token=' + localStorage.getItem('authToken'))
         .then(response => response.json())
 
-const callGetRoute = (action) =>
+export const callGetRoute = (action) =>
     fetch(host + '/route?address1=' + action.payload.address1 + '&address2=' + action.payload.address2)
         .then(response => response.json())
 
 export function* sagaLogger() {
-    yield takeEvery('*', function* logger(action) {
+    yield takeEvery('*', function*(action) {
         console.log('ACTION', action)
     })
 }
 
 export function* sagaGetAddressList() {
-
-    yield takeEvery(fetchAddressListRequest, function*() {
-        try {
-            const result = yield call(callGetAddressList)
-            yield put(fetchAddressListSuccess(result))
-        } catch (error) {
-            yield put(fetchAddressListFailure(error))
-        }
-    })
+    try {
+        const result = yield call(callGetAddressList)
+        yield put(fetchAddressListSuccess(result))
+    } catch (error) {
+        yield put(fetchAddressListFailure(error))
+    }
 }
 
 export function* sagaGetCard() {
-
-    yield takeEvery(fetchGetCardRequest, function*() {
-        try {
-            const result = yield call(callGetCard)
-            yield put(fetchGetCardSuccess(result))
-        } catch (error) {
-            yield put(fetchGetCardFailure(error))
-        }
-    })
+    try {
+        const result = yield call(callGetCard)
+        yield put(fetchGetCardSuccess(result))
+    } catch (error) {
+        yield put(fetchGetCardFailure(error))
+    }
 }
 
-export function* sagaPostAuth() {
-
-    yield takeEvery(fetchAuthRequest, function*(action) {
-        try {
-            const result = yield call(callPostAuth, action)
-            yield put(fetchAuthSuccess(result))
-        } catch (error) {
-            yield put(fetchAuthFailure(error))
-        }
-    })
+export function* sagaPostAuth(action) {
+    try {
+        const result = yield call(callPostAuth, action)
+        yield put(fetchAuthSuccess(result))
+    } catch (error) {
+        yield put(fetchAuthFailure(error))
+    }
 }
 
-export function* sagaPostRegister() {
-
-    yield takeEvery(fetchRegisterRequest, function*(action) {
-        try {
-            const result = yield call(callPostRegister, action)
-            yield put(fetchRegisterSuccess(result))
-        } catch (error) {
-            yield put(fetchRegisterFailure(error))
-        }
-    })
+export function* sagaPostRegister(action) {
+    try {
+        const result = yield call(callPostRegister, action)
+        yield put(fetchRegisterSuccess(result))
+    } catch (error) {
+        yield put(fetchRegisterFailure(error))
+    }
 }
 
-export function* sagaPostCard() {
-
-    yield takeEvery(fetchPostCardRequest, function*(action) {
-        try {
-            const result = yield call(callPostCard, action)
-            yield put(fetchPostCardSuccess(result))
-        } catch (error) {
-            yield put(fetchPostCardFailure(error))
-        }
-    })
+export function* sagaPostCard(action) {
+    try {
+        const result = yield call(callPostCard, action)
+        yield put(fetchPostCardSuccess(result))
+    } catch (error) {
+        yield put(fetchPostCardFailure(error))
+    }
 }
 
-function* sagaGetRoute() {
-
-    yield takeEvery(fetchGetRouteListRequest, function*(action) {
-        try {
-            const result = yield call(callGetRoute, action)
-            yield put(fetchGetRouteListSuccess(result))
-        } catch (error) {
-            yield put(fetchGetRouteListFailure(error))
-        }
-    })
+export function* sagaGetRoute(action) {
+    try {
+        const result = yield call(callGetRoute, action)
+        yield put(fetchGetRouteListSuccess(result))
+    } catch (error) {
+        yield put(fetchGetRouteListFailure(error))
+    }
 }
 
 export function* rootSaga() {
     yield all([
         sagaLogger(),
-        sagaGetAddressList(),
-        sagaGetCard(),
-        sagaGetRoute(),
-        sagaPostAuth(),
-        sagaPostRegister(),
-        sagaPostCard(),
+        yield takeEvery(fetchAddressListRequest, sagaGetAddressList),
+        yield takeEvery(fetchGetCardRequest, sagaGetCard),
+        yield takeEvery(fetchGetRouteListRequest, sagaGetRoute),
+        yield takeEvery(fetchAuthRequest, sagaPostAuth),
+        yield takeEvery(fetchRegisterRequest, sagaPostRegister),
+        yield takeEvery(fetchPostCardRequest, sagaPostCard),
     ])
 }
