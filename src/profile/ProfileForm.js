@@ -10,16 +10,20 @@ import DateFnsUtils from '@date-io/date-fns'
 
 import {
     getCard,
+    getPostCard,
     fetchGetCardRequest,
     fetchPostCardRequest,
 } from '../modules/main'
 
 import {shallowEqual, useSelector, useDispatch} from 'react-redux'
+import history from '../history'
 
 export const ProfileForm = () => {
 
     const card = useSelector(getCard, shallowEqual)
     const callGetCardRequest = useSelector(fetchGetCardRequest, shallowEqual)
+
+    const postCard = useSelector(getPostCard, shallowEqual)
     const callPostCardRequest = useSelector(fetchPostCardRequest, shallowEqual)
 
     const dispatch = useDispatch()
@@ -35,6 +39,7 @@ export const ProfileForm = () => {
         expiryDate: new Date(),
         cardName: '',
         cvc: '',
+        isSaveSuccess: false,
     })
 
     useEffect(() => {
@@ -65,7 +70,30 @@ export const ProfileForm = () => {
         })
     }
 
+    useEffect(() => {
+        if (postCard && postCard.success) {
+            setState({...state, isSaveSuccess: true})
+        }
+    }, [postCard])
+
     return (
+
+        state.isSaveSuccess ?
+
+        <div className={''}>
+            <div className={'ProfileSaveSuccess'}>Платёжные данные обновлены. Теперь вы можете заказывать такси.</div>
+            <div className={'ProfileFormButton'}>
+                <Button type={'submit'}
+                        variant={'contained'}
+                        color={'primary'}
+                        onClick={() => history.push('/map')}
+                        className={'ButtonLowerCase'}>
+                    Перейти на карту
+                </Button>
+            </div>
+        </div>
+
+        :
 
         <div className={'ProfileFormContainer'}>
             <form onSubmit={onSubmit} className={'ProfileForm'}>

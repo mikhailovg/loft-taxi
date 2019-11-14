@@ -19,3 +19,7 @@ export const fetchGetCardFailure = createAction('FETCH_GET_CARD_FAILURE')
 export const fetchPostCardRequest = createAction('FETCH_POST_CARD_REQUEST')
 export const fetchPostCardSuccess = createAction('FETCH_POST_CARD_SUCCESS')
 export const fetchPostCardFailure = createAction('FETCH_POST_CARD_FAILURE')
+
+export const fetchGetRouteListRequest = createAction('FETCH_GET_ROUTE_LIST_REQUEST')
+export const fetchGetRouteListSuccess = createAction('FETCH_GET_ROUTE_LIST_SUCCESS')
+export const fetchGetRouteListFailure = createAction('FETCH_GET_ROUTE_LIST_FAILURE')
