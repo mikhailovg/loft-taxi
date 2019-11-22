@@ -1,7 +1,7 @@
 import reducer from '../modules'
 import * as actions from '../modules/main/actions'
 
-describe('main reducer', () => {
+describe('Reducer', () => {
 
     it('AUTH_REQUEST', () => {
 

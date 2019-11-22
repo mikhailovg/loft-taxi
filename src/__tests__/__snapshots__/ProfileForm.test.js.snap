@@ -5,7 +5,6 @@ exports[`ProfileForm renders correctly 1`] = `
   className="ProfileFormContainer"
 >
   <form
-    className="ProfileForm"
     onSubmit={[Function]}
   >
     <div
@@ -41,10 +40,10 @@ exports[`ProfileForm renders correctly 1`] = `
                 </label>
               </div>
               <div
-                className="MuiFormControl-root MuiTextField-root MuiFormControl-marginNormal"
+                className="MuiFormControl-root MuiTextField-root MuiFormControl-marginNormal MuiFormControl-fullWidth"
               >
                 <div
-                  className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"
+                  className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-fullWidth MuiInput-fullWidth MuiInputBase-formControl MuiInput-formControl"
                   onClick={[Function]}
                 >
                   <input
@@ -115,10 +114,10 @@ exports[`ProfileForm renders correctly 1`] = `
               </label>
             </div>
             <div
-              className="MuiFormControl-root MuiTextField-root MuiFormControl-marginNormal"
+              className="MuiFormControl-root MuiTextField-root MuiFormControl-marginNormal MuiFormControl-fullWidth"
             >
               <div
-                className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"
+                className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-fullWidth MuiInput-fullWidth MuiInputBase-formControl MuiInput-formControl"
                 onClick={[Function]}
               >
                 <input
@@ -147,10 +146,10 @@ exports[`ProfileForm renders correctly 1`] = `
               </label>
             </div>
             <div
-              className="MuiFormControl-root MuiTextField-root MuiFormControl-marginNormal"
+              className="MuiFormControl-root MuiTextField-root MuiFormControl-marginNormal MuiFormControl-fullWidth"
             >
               <div
-                className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"
+                className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-fullWidth MuiInput-fullWidth MuiInputBase-formControl MuiInput-formControl"
                 onClick={[Function]}
               >
                 <input

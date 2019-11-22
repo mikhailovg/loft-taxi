@@ -96,7 +96,7 @@ exports[`Header renders correctly 1`] = `
     >
       <a
         className="HeaderLink"
-        href="/register"
+        href="/"
         onClick={[Function]}
       >
         Выход

@@ -96,8 +96,12 @@ export function* sagaGetCard() {
 
 export function* sagaPostAuth(action) {
     try {
-        const result = yield call(callPostAuth, action)
-        yield put(fetchAuthSuccess(result))
+        if (action && action.payload && action.payload.email && action.payload.password) {
+            const result = yield call(callPostAuth, action)
+            yield put(fetchAuthSuccess(result))
+        } else {
+            yield put(fetchAuthSuccess({success: false}))
+        }
     } catch (error) {
         yield put(fetchAuthFailure(error))
     }
@@ -105,8 +109,12 @@ export function* sagaPostAuth(action) {
 
 export function* sagaPostRegister(action) {
     try {
-        const result = yield call(callPostRegister, action)
-        yield put(fetchRegisterSuccess(result))
+        if (action && action.payload && action.payload.email && action.payload.password) {
+            const result = yield call(callPostRegister, action)
+            yield put(fetchRegisterSuccess(result))
+        } else {
+            yield put(fetchRegisterSuccess({success: false}))
+        }
     } catch (error) {
         yield put(fetchRegisterFailure(error))
     }

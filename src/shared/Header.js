@@ -63,7 +63,7 @@ export const Header = () => {
             </Button>
 
            <Button id={'LogoutButton'} color={'primary'} onClick={performLogout}>
-               <Link to={'/register'} className={'HeaderLink'}>
+               <Link to={'/'} className={'HeaderLink'}>
                    Выход
                </Link>
            </Button>

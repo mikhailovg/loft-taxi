@@ -34,7 +34,7 @@ exports[`Registration renders correctly 1`] = `
         </div>
       </div>
       <div
-        className="MuiFormControl-root MuiTextField-root MuiFormControl-marginNormal"
+        className="MuiFormControl-root MuiTextField-root MuiFormControl-marginNormal MuiFormControl-fullWidth"
       >
         <label
           className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated Mui-required Mui-required"
@@ -49,7 +49,7 @@ exports[`Registration renders correctly 1`] = `
           </span>
         </label>
         <div
-          className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"
+          className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-fullWidth MuiInput-fullWidth MuiInputBase-formControl MuiInput-formControl"
           onClick={[Function]}
         >
           <input
@@ -64,11 +64,12 @@ exports[`Registration renders correctly 1`] = `
             placeholder="Адрес электронной почты"
             required={true}
             type="text"
+            value=""
           />
         </div>
       </div>
       <div
-        className="MuiFormControl-root MuiTextField-root MuiFormControl-marginNormal"
+        className="MuiFormControl-root MuiTextField-root MuiFormControl-marginNormal MuiFormControl-fullWidth"
       >
         <label
           className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated Mui-required Mui-required"
@@ -83,7 +84,7 @@ exports[`Registration renders correctly 1`] = `
           </span>
         </label>
         <div
-          className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"
+          className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-fullWidth MuiInput-fullWidth MuiInputBase-formControl MuiInput-formControl"
           onClick={[Function]}
         >
           <input
@@ -98,11 +99,12 @@ exports[`Registration renders correctly 1`] = `
             placeholder="Имя"
             required={true}
             type="text"
+            value=""
           />
         </div>
       </div>
       <div
-        className="MuiFormControl-root MuiTextField-root MuiFormControl-marginNormal"
+        className="MuiFormControl-root MuiTextField-root MuiFormControl-marginNormal MuiFormControl-fullWidth"
       >
         <label
           className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated Mui-required Mui-required"
@@ -117,7 +119,7 @@ exports[`Registration renders correctly 1`] = `
           </span>
         </label>
         <div
-          className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"
+          className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-fullWidth MuiInput-fullWidth MuiInputBase-formControl MuiInput-formControl"
           onClick={[Function]}
         >
           <input
@@ -132,11 +134,12 @@ exports[`Registration renders correctly 1`] = `
             placeholder="Фамилия"
             required={true}
             type="text"
+            value=""
           />
         </div>
       </div>
       <div
-        className="MuiFormControl-root MuiTextField-root MuiFormControl-marginNormal"
+        className="MuiFormControl-root MuiTextField-root MuiFormControl-marginNormal MuiFormControl-fullWidth"
       >
         <label
           className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated Mui-required Mui-required"
@@ -151,7 +154,7 @@ exports[`Registration renders correctly 1`] = `
           </span>
         </label>
         <div
-          className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"
+          className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-fullWidth MuiInput-fullWidth MuiInputBase-formControl MuiInput-formControl"
           onClick={[Function]}
         >
           <input
@@ -166,6 +169,7 @@ exports[`Registration renders correctly 1`] = `
             placeholder="Пароль"
             required={true}
             type="password"
+            value=""
           />
         </div>
       </div>
