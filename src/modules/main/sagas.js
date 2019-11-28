@@ -140,7 +140,6 @@ export function* sagaGetRoute(action) {
 
 export function* rootSaga() {
     yield all([
-        sagaLogger(),
         yield takeEvery(fetchAddressListRequest, sagaGetAddressList),
         yield takeEvery(fetchGetCardRequest, sagaGetCard),
         yield takeEvery(fetchGetRouteListRequest, sagaGetRoute),
